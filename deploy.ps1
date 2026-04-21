@@ -13,8 +13,8 @@ param (
     [switch]$Stop = $false
 )
 
-$RootDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$ComposeDir = Join-Path $RootDir "deployment\docker_compose"
+$PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$ComposeDir = Join-Path $PSScriptRoot "deployment\docker_compose"
 
 function Show-Header {
     Clear-Host

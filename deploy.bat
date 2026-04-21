@@ -14,6 +14,7 @@ if "%MODE%"=="local" goto LOCAL
 
 :DOCKER
 echo 🐳 Starting AGI Prospection in Docker mode...
+cd /d "%~dp0"
 cd deployment\docker_compose
 docker compose up -d
 echo.
