@@ -459,7 +459,7 @@ kubernetes==31.0.0
 langchain-core==1.2.22
 langdetect==1.0.9
     # via unstructured
-langfuse==3.10.0
+langfuse==4.2.0
 langsmith==0.3.45
     # via langchain-core
 lazy-imports==1.0.1
