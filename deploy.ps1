@@ -3,7 +3,7 @@
 
 param (
     [Parameter(Mandatory=$false)]
-    [ValidateSet("docker", "local")]
+    [ValidateSet("docker", "local", "dev")]
     [string]$Mode = "docker",
 
     [Parameter(Mandatory=$false)]
@@ -65,11 +65,37 @@ function Start-Local {
     Write-Host "`nSUCCESS: Local development servers started in separate windows." -ForegroundColor Green
 }
 
+function Start-Dev {
+    Write-Host "[DEV] Starting in Hybrid mode (Infra in Docker + App Local)..." -ForegroundColor Yellow
+    Set-Location $ComposeDir
+    
+    # 1. Start only infrastructure containers
+    Write-Host "[INFRA] Starting Databases and Model Servers..." -ForegroundColor Gray
+    docker compose up -d relational_db index cache inference_model_server indexing_model_server
+    
+    # 2. Wait for DB
+    Write-Host "[WAIT] Waiting for databases to stabilize..." -ForegroundColor Gray
+    Start-Sleep -Seconds 5
+
+    # 3. Start Backend locally
+    Write-Host "[APP] Starting Backend locally..." -ForegroundColor Gray
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd backend; python -m venv venv; .\venv\Scripts\activate; pip install -r requirements.txt; python main.py"
+    
+    # 4. Start Frontend locally
+    Write-Host "[APP] Starting Frontend locally..." -ForegroundColor Gray
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd web; npm install; npm run dev"
+    
+    Write-Host "`nSUCCESS: Hybrid Dev environment ready." -ForegroundColor Green
+    Write-Host "Infra: Docker | App: Local (Hot-reload enabled)" -ForegroundColor Cyan
+}
+
 # Execution
 Show-Header
 
 if ($Mode -eq "docker") {
     Start-Docker
+} elseif ($Mode -eq "dev") {
+    Start-Dev
 } else {
     Start-Local
 }

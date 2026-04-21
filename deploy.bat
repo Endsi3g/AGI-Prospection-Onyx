@@ -10,6 +10,7 @@ set MODE=%1
 if "%MODE%"=="" set MODE=docker
 
 if "%MODE%"=="docker" goto DOCKER
+if "%MODE%"=="dev" goto DEV
 if "%MODE%"=="local" goto LOCAL
 
 :DOCKER
@@ -24,6 +25,19 @@ cd deployment\docker_compose
 docker compose up -d
 echo.
 echo SUCCESS: AGI Prospection is running at http://localhost:3000
+goto END
+
+:DEV
+echo [DEV] Starting in Hybrid mode (Infra in Docker + App Local)...
+cd /d "%~dp0"
+cd deployment\docker_compose
+docker compose up -d relational_db index cache inference_model_server indexing_model_server
+echo.
+echo [APP] Starting Backend and Frontend locally...
+start powershell -NoExit -Command "cd backend; python -m venv venv; .\venv\Scripts\activate; pip install -r requirements.txt; python main.py"
+start powershell -NoExit -Command "cd web; npm install; npm run dev"
+echo.
+echo SUCCESS: Hybrid Dev environment triggered.
 goto END
 
 :LOCAL
