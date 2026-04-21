@@ -253,7 +253,7 @@ fastavro==1.12.1
 fastmcp==3.2.0
 fastuuid==0.14.0
     # via litellm
-filelock==3.20.3
+filelock==3.25.2
     # via huggingface-hub
 filetype==1.2.0
     # via unstructured
