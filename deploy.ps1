@@ -19,44 +19,50 @@ $ComposeDir = Join-Path $PSScriptRoot "deployment\docker_compose"
 function Show-Header {
     Clear-Host
     Write-Host "==========================================" -ForegroundColor Cyan
-    Write-Host "   🚀 AGI PROSPECTION HUB DEPLOYMENT   " -ForegroundColor White -BackgroundColor Blue
+    Write-Host "   AGI PROSPECTION HUB DEPLOYMENT   " -ForegroundColor White -BackgroundColor Blue
     Write-Host "==========================================" -ForegroundColor Cyan
 }
 
 function Start-Docker {
-    Write-Host "🐳 Starting AGI Prospection in Docker mode..." -ForegroundColor Yellow
+    Write-Host "[DOCKER] Starting AGI Prospection in Docker mode..." -ForegroundColor Yellow
+    
+    if (!(Test-Path $ComposeDir)) {
+        Write-Host "ERROR: Compose directory not found at $ComposeDir" -ForegroundColor Red
+        return
+    }
+
     Set-Location $ComposeDir
     
     if ($Stop) {
-        Write-Host "🛑 Stopping services..."
+        Write-Host "[STOP] Stopping services..."
         docker compose down
         return
     }
 
     if ($Build) {
-        Write-Host "🏗️ Building images..."
+        Write-Host "[BUILD] Building images..."
         docker compose build
     }
 
-    Write-Host "🛰️ Launching containers..."
+    Write-Host "[LAUNCH] Launching containers..."
     docker compose up -d
     
-    Write-Host "`n✅ AGI Prospection is running at http://localhost:3000" -ForegroundColor Green
-    Write-Host "📊 API Documentation at http://localhost:8080/docs" -ForegroundColor Gray
+    Write-Host "`nSUCCESS: AGI Prospection is running at http://localhost:3000" -ForegroundColor Green
+    Write-Host "API Documentation: http://localhost:8080/docs" -ForegroundColor Gray
 }
 
 function Start-Local {
-    Write-Host "💻 Starting AGI Prospection in Local mode..." -ForegroundColor Yellow
+    Write-Host "[LOCAL] Starting AGI Prospection in Local mode..." -ForegroundColor Yellow
     
     # 1. Backend
-    Write-Host "🐍 Starting Backend..." -ForegroundColor Gray
+    Write-Host "-> Starting Backend..." -ForegroundColor Gray
     Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd backend; python -m venv venv; .\venv\Scripts\activate; pip install -r requirements.txt; python main.py"
     
     # 2. Frontend
-    Write-Host "⚛️ Starting Frontend..." -ForegroundColor Gray
+    Write-Host "-> Starting Frontend..." -ForegroundColor Gray
     Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd web; npm install; npm run dev"
     
-    Write-Host "`n✅ Local development servers started in separate windows." -ForegroundColor Green
+    Write-Host "`nSUCCESS: Local development servers started in separate windows." -ForegroundColor Green
 }
 
 # Execution
@@ -68,4 +74,4 @@ if ($Mode -eq "docker") {
     Start-Local
 }
 
-Write-Host "`n✨ Done!" -ForegroundColor Cyan
+Write-Host "`nDone!" -ForegroundColor Cyan
