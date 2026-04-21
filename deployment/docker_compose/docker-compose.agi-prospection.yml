@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  api_server:
+    volumes:
+      - ../../knowledge:/app/custom_knowledge:ro
+  
+  background:
+    profiles: ["background"]
+    volumes:
+      - ../../knowledge:/app/custom_knowledge:ro

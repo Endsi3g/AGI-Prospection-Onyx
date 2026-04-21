@@ -1,0 +1,155 @@
+{
+  "app": {
+    "title": "AGI Prospection",
+    "description": "Plateforme d'Intelligence Commerciale B2B d'Élite"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "general": "Général",
+    "background": "Arrière-plan",
+    "useOnyxAsNewTab": "Utiliser Onyx comme nouvel onglet",
+    "theme": "Thème",
+    "switchToLight": "Passer au thème clair",
+    "switchToDark": "Passer au thème sombre",
+    "language": "Langue",
+    "languageDescription": "Choisissez votre langue préférée",
+    "none": "Aucun",
+    "closeSettings": "Fermer les paramètres"
+  },
+  "chat": {
+    "newChat": "Nouvelle conversation",
+    "placeholder": "Posez votre question au Stratège AGI Prospection...",
+    "send": "Envoyer",
+    "stop": "Arrêter",
+    "thinking": "Réflexion en cours...",
+    "noMessages": "Aucun message",
+    "startConversation": "Démarrer une conversation",
+    "regenerate": "Régénérer",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "searchPlaceholder": "Rechercher dans les conversations..."
+  },
+  "sidebar": {
+    "history": "Historique",
+    "assistants": "Assistants",
+    "tools": "Outils",
+    "connectors": "Connecteurs",
+    "admin": "Administration",
+    "search": "Recherche"
+  },
+  "tools": {
+    "prospectScorer": {
+      "name": "Évaluateur ICP de Prospect",
+      "description": "Évaluez un prospect par rapport à votre Profil Client Idéal (ICP). Analyse la taille de l'entreprise, le niveau décisionnaire, l'industrie et les signaux de douleur.",
+      "companyName": "Nom de l'entreprise",
+      "industry": "Industrie",
+      "employeeCount": "Nombre d'employés",
+      "decisionMakerTitle": "Titre du décideur",
+      "annualRevenue": "Chiffre d'affaires annuel",
+      "painIndicators": "Indicateurs de douleur",
+      "tierA": "NIVEAU A — Prospect Prioritaire",
+      "tierB": "NIVEAU B — Prospect Solide",
+      "tierC": "NIVEAU C — À Nourrir",
+      "tierD": "NIVEAU D — Faible Priorité",
+      "strategyA": "Déployez un Cold Loom (méthode Charlie Morgan) + Offre d'Entrée personnalisée immédiatement.",
+      "strategyB": "Commencez avec une séquence de Cold Email (méthode Aaron Shepherd) axée sur la valeur.",
+      "strategyC": "Ajoutez à la séquence de nurturing. Engagez via le contenu et la preuve sociale avant la prospection directe.",
+      "strategyD": "Mettez de côté pour plus tard. Concentrez vos efforts sur les prospects mieux notés.",
+      "sweetSpot": "Zone idéale",
+      "midMarket": "Marché intermédiaire",
+      "enterprise": "Grande entreprise",
+      "small": "Petite entreprise",
+      "unknown": "Inconnu",
+      "highValue": "Haute valeur",
+      "standard": "Standard",
+      "cLevel": "Direction / Fondateur",
+      "vpDirector": "VP / Directeur",
+      "manager": "Manager",
+      "other": "Autre",
+      "notAvailable": "Non disponible",
+      "noneIdentified": "Aucun identifié"
+    },
+    "objectionHandler": {
+      "name": "Gestionnaire d'Objections (Manuel d'Élite)",
+      "description": "Générez des réponses d'élite aux objections avec le cadre en 3 tentatives de Daniel G.",
+      "noMoney": "Je n'ai pas l'argent",
+      "sendEmail": "Envoyez-moi un courriel",
+      "notInterested": "Ça ne m'intéresse pas",
+      "tooBusy": "Je suis occupé(e)",
+      "alreadyHaveProvider": "On travaille déjà avec quelqu'un",
+      "needToThink": "Il faut que j'y réfléchisse",
+      "metaAdvice": "Rappelez-vous : la fortune réside dans le nombre de tentatives. N'abandonnez jamais à la première objection."
+    },
+    "outreachScript": {
+      "name": "Générateur de Scripts de Prospection",
+      "description": "Générez des scripts Cold Loom (Charlie Morgan), Cold Email (Aaron Shepherd) ou Cold Call (Jordan Platten).",
+      "coldLoom": "Vidéo Loom à froid",
+      "coldEmail": "Courriel à froid",
+      "coldCall": "Appel à froid",
+      "prospectName": "Nom du prospect",
+      "companyName": "Nom de l'entreprise",
+      "niche": "Niche / Industrie",
+      "valueProposition": "Proposition de valeur",
+      "frontEndOffer": "Offre d'entrée"
+    },
+    "internalSearch": "Recherche interne",
+    "webSearch": "Recherche web",
+    "imageGeneration": "Génération d'images",
+    "codeInterpreter": "Interpréteur de code",
+    "memory": "Mémoire",
+    "openUrl": "Ouvrir URL",
+    "datasetIngestion": {
+      "name": "Importation de Dataset",
+      "description": "Importez et scorez des listes de prospects (JSON/CSV) automatiquement."
+    },
+    "telegramNotifier": {
+      "name": "Notifications Telegram",
+      "description": "Envoyez des alertes de prospection en temps réel sur Telegram."
+    },
+    "twilioOutreach": {
+      "name": "Twilio SMS & Appel",
+      "description": "Automatisez l'outreach par SMS ou appel vocal via Twilio."
+    }
+  },
+  "admin": {
+    "title": "Panneau d'administration",
+    "connectors": "Connecteurs",
+    "models": "Modèles",
+    "tools": "Outils",
+    "personas": "Assistants",
+    "users": "Utilisateurs",
+    "settings": "Paramètres"
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "email": "Adresse courriel",
+    "password": "Mot de passe",
+    "signUp": "Inscription",
+    "forgotPassword": "Mot de passe oublié ?",
+    "resetPassword": "Réinitialiser le mot de passe"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "close": "Fermer",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre",
+    "upload": "Téléverser",
+    "download": "Télécharger",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "yes": "Oui",
+    "no": "Non",
+    "noResults": "Aucun résultat trouvé",
+    "searchPlaceholder": "Rechercher..."
+  }
+}

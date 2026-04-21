@@ -1,0 +1,155 @@
+{
+  "app": {
+    "title": "AGI Prospection",
+    "description": "Elite B2B Sales Intelligence Platform"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "background": "Background",
+    "useOnyxAsNewTab": "Use Onyx as new tab page",
+    "theme": "Theme",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme",
+    "language": "Language",
+    "languageDescription": "Choose your preferred language",
+    "none": "None",
+    "closeSettings": "Close settings"
+  },
+  "chat": {
+    "newChat": "New Chat",
+    "placeholder": "Ask your AGI Prospection Strategist...",
+    "send": "Send",
+    "stop": "Stop",
+    "thinking": "Thinking...",
+    "noMessages": "No messages yet",
+    "startConversation": "Start a conversation",
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "searchPlaceholder": "Search conversations..."
+  },
+  "sidebar": {
+    "history": "History",
+    "assistants": "Assistants",
+    "tools": "Tools",
+    "connectors": "Connectors",
+    "admin": "Admin",
+    "search": "Search"
+  },
+  "tools": {
+    "prospectScorer": {
+      "name": "Prospect ICP Scorer",
+      "description": "Score a prospect against your Ideal Customer Profile (ICP). Analyzes company size, decision-maker level, industry, and pain indicators.",
+      "companyName": "Company Name",
+      "industry": "Industry",
+      "employeeCount": "Employee Count",
+      "decisionMakerTitle": "Decision Maker Title",
+      "annualRevenue": "Annual Revenue",
+      "painIndicators": "Pain Indicators",
+      "tierA": "TIER A — Priority Prospect",
+      "tierB": "TIER B — Strong Prospect",
+      "tierC": "TIER C — Nurture",
+      "tierD": "TIER D — Low Priority",
+      "strategyA": "Deploy Cold Loom (Charlie Morgan method) + personalized Front-End Offer immediately.",
+      "strategyB": "Start with Cold Email sequence (Aaron Shepherd method) with a value-first approach.",
+      "strategyC": "Add to nurture sequence. Engage via content and social proof before direct outreach.",
+      "strategyD": "Park for later. Focus efforts on higher-scoring prospects.",
+      "sweetSpot": "Sweet Spot",
+      "midMarket": "Mid-Market",
+      "enterprise": "Enterprise",
+      "small": "Small",
+      "unknown": "Unknown",
+      "highValue": "High-Value",
+      "standard": "Standard",
+      "cLevel": "C-Level / Founder",
+      "vpDirector": "VP / Director",
+      "manager": "Manager",
+      "other": "Other",
+      "notAvailable": "Not available",
+      "noneIdentified": "None identified"
+    },
+    "objectionHandler": {
+      "name": "Objection Handler (Manuel d'Élite)",
+      "description": "Generate elite objection responses using Daniel G's 3-attempt framework.",
+      "noMoney": "I don't have the money",
+      "sendEmail": "Send me an email",
+      "notInterested": "I'm not interested",
+      "tooBusy": "I'm busy",
+      "alreadyHaveProvider": "We already work with someone",
+      "needToThink": "I need to think about it",
+      "metaAdvice": "Remember: The fortune is in the follow-up attempts. Never abandon at the first objection."
+    },
+    "outreachScript": {
+      "name": "Outreach Script Generator",
+      "description": "Generate Cold Loom, Cold Email, or Cold Call scripts using elite sales methodologies.",
+      "coldLoom": "Cold Loom",
+      "coldEmail": "Cold Email",
+      "coldCall": "Cold Call",
+      "prospectName": "Prospect Name",
+      "companyName": "Company Name",
+      "niche": "Niche / Industry",
+      "valueProposition": "Value Proposition",
+      "frontEndOffer": "Front-End Offer"
+    },
+    "internalSearch": "Internal Search",
+    "webSearch": "Web Search",
+    "imageGeneration": "Image Generation",
+    "codeInterpreter": "Code Interpreter",
+    "memory": "Memory",
+    "openUrl": "Open URL",
+    "datasetIngestion": {
+      "name": "Dataset Ingestion",
+      "description": "Import and score prospect lists (JSON/CSV) automatically."
+    },
+    "telegramNotifier": {
+      "name": "Telegram Notifications",
+      "description": "Send real-time prospection alerts to Telegram."
+    },
+    "twilioOutreach": {
+      "name": "Twilio SMS & Voice",
+      "description": "Automate outreach via SMS or voice call via Twilio."
+    }
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "connectors": "Connectors",
+    "models": "Models",
+    "tools": "Tools",
+    "personas": "Assistants",
+    "users": "Users",
+    "settings": "Settings"
+  },
+  "auth": {
+    "login": "Log In",
+    "logout": "Log Out",
+    "email": "Email",
+    "password": "Password",
+    "signUp": "Sign Up",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset Password"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "upload": "Upload",
+    "download": "Download",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "yes": "Yes",
+    "no": "No",
+    "noResults": "No results found",
+    "searchPlaceholder": "Search..."
+  }
+}

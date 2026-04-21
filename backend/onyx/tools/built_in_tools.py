@@ -1,0 +1,108 @@
+from typing import Type
+from typing import Union
+
+from onyx.tools.tool_implementations.file_reader.file_reader_tool import FileReaderTool
+from onyx.tools.tool_implementations.images.image_generation_tool import (
+    ImageGenerationTool,
+)
+from onyx.tools.tool_implementations.knowledge_graph.knowledge_graph_tool import (
+    KnowledgeGraphTool,
+)
+from onyx.tools.tool_implementations.memory.memory_tool import MemoryTool
+from onyx.tools.tool_implementations.open_url.open_url_tool import OpenURLTool
+from onyx.tools.tool_implementations.prospection.objection_handler_tool import (
+    ObjectionHandlerTool,
+)
+from onyx.tools.tool_implementations.prospection.outreach_script_tool import (
+    OutreachScriptTool,
+)
+from onyx.tools.tool_implementations.prospection.prospect_scorer_tool import (
+    ProspectScorerTool,
+)
+from onyx.tools.tool_implementations.prospection.dataset_ingestion_tool import (
+    DatasetIngestionTool,
+)
+from onyx.tools.tool_implementations.prospection.telegram_notifier_tool import (
+    TelegramNotifierTool,
+)
+from onyx.tools.tool_implementations.prospection.twilio_outreach_tool import (
+    TwilioOutreachTool,
+)
+from onyx.tools.tool_implementations.python.python_tool import PythonTool
+from onyx.tools.tool_implementations.search.search_tool import SearchTool
+from onyx.tools.tool_implementations.web_search.web_search_tool import (
+    WebSearchTool,
+)
+from onyx.utils.logger import setup_logger
+
+logger = setup_logger()
+
+
+BUILT_IN_TOOL_TYPES = Union[
+    SearchTool,
+    ImageGenerationTool,
+    WebSearchTool,
+    KnowledgeGraphTool,
+    OpenURLTool,
+    PythonTool,
+    FileReaderTool,
+    MemoryTool,
+    ProspectScorerTool,
+    ObjectionHandlerTool,
+    OutreachScriptTool,
+    DatasetIngestionTool,
+    TelegramNotifierTool,
+    TwilioOutreachTool,
+]
+
+BUILT_IN_TOOL_MAP: dict[str, Type[BUILT_IN_TOOL_TYPES]] = {
+    SearchTool.__name__: SearchTool,
+    ImageGenerationTool.__name__: ImageGenerationTool,
+    WebSearchTool.__name__: WebSearchTool,
+    KnowledgeGraphTool.__name__: KnowledgeGraphTool,
+    OpenURLTool.__name__: OpenURLTool,
+    PythonTool.__name__: PythonTool,
+    FileReaderTool.__name__: FileReaderTool,
+    MemoryTool.__name__: MemoryTool,
+    ProspectScorerTool.__name__: ProspectScorerTool,
+    ObjectionHandlerTool.__name__: ObjectionHandlerTool,
+    OutreachScriptTool.__name__: OutreachScriptTool,
+    DatasetIngestionTool.__name__: DatasetIngestionTool,
+    TelegramNotifierTool.__name__: TelegramNotifierTool,
+    TwilioOutreachTool.__name__: TwilioOutreachTool,
+}
+
+STOPPING_TOOLS_NAMES: list[str] = [ImageGenerationTool.NAME]
+CITEABLE_TOOLS_NAMES: list[str] = [
+    SearchTool.NAME,
+    WebSearchTool.NAME,
+    OpenURLTool.NAME,
+]
+
+
+def get_built_in_tool_ids() -> list[str]:
+    return list(BUILT_IN_TOOL_MAP.keys())
+
+
+def get_built_in_tool_by_id(in_code_tool_id: str) -> Type[BUILT_IN_TOOL_TYPES]:
+    return BUILT_IN_TOOL_MAP[in_code_tool_id]
+
+
+def _build_tool_name_to_class() -> dict[str, Type[BUILT_IN_TOOL_TYPES]]:
+    """Build a mapping from LLM-facing tool name to tool class."""
+    result: dict[str, Type[BUILT_IN_TOOL_TYPES]] = {}
+    for cls in BUILT_IN_TOOL_MAP.values():
+        name_attr = cls.__dict__.get("name")
+        if isinstance(name_attr, property) and name_attr.fget is not None:
+            tool_name = name_attr.fget(cls)
+        elif isinstance(name_attr, str):
+            tool_name = name_attr
+        else:
+            raise ValueError(
+                f"Built-in tool {cls.__name__} must define a valid LLM-facing tool name"
+            )
+        result[tool_name] = cls
+    return result
+
+
+TOOL_NAME_TO_CLASS: dict[str, Type[BUILT_IN_TOOL_TYPES]] = _build_tool_name_to_class()
