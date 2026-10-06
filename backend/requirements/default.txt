@@ -52,7 +52,7 @@ asana==5.0.8
 async-timeout==5.0.1 ; python_full_version < '3.11.3'
     # via redis
 asyncpg==0.30.0
-atlassian-python-api==3.41.16
+atlassian-python-api==5.0.5
 attrs==25.4.0
     # via
     #   aiohttp
